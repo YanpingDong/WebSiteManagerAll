@@ -38,6 +38,13 @@
     <param-name>spring.profiles.default</param-name>
     <param-value>production</param-value>
   </context-param>
+  
+  <listener>
+     <listener-class>
+       se.jiderhamn.classloader.leak.prevention.ClassLoaderLeakPreventor
+     </listener-class>
+  </listener>  
+  
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>

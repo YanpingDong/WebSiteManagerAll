@@ -79,8 +79,8 @@
 
 	<!-- 拦截器配置 将拦截所有的URL请求 -->
 	<mvc:interceptors>
-		<bean class="com.thinkgem.jeesite.modules.sys.interceptor.LogInterceptor" />
-	</mvc:interceptors>
+	   <ref bean="logInterceptor"/>
+    </mvc:interceptors>
 	
 	<!-- 支持Shiro对Controller的方法级AOP安全控制 begin-->
 	<bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor">

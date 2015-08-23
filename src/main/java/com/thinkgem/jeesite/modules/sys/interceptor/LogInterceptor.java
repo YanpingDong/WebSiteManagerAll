@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -32,6 +33,8 @@ import eu.bitwalker.useragentutils.UserAgent;
  * @author ThinkGem
  * @version 2013-6-6
  */
+@Component("logInterceptor")
+@Transactional
 public class LogInterceptor implements HandlerInterceptor {
 	private Logger logger = LoggerFactory.getLogger(getClass());
 	private static LogDao logDao = SpringContextHolder.getBean(LogDao.class);
