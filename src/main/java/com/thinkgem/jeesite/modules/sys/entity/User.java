@@ -268,8 +268,8 @@ public class User extends IdEntity<User> {
 		return id != null && id.equals("1");
 	}
 	
-//	@Override
-//	public String toString() {
-//		return ToStringBuilder.reflectionToString(this);
-//	}
+/*	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this);
+	}*/
 }

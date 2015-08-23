@@ -14,22 +14,22 @@
 	<context:component-scan base-package="com.thinkgem.jeesite" use-default-filters="false"><!-- base-package 如果多个，用“,”分隔 -->
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
-	<mvc:annotation-driven/>
+	<!-- <mvc:annotation-driven/> -->
 	<!-- 默认的注解映射的支持，org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping -->
-	<!-- <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager">
+	<mvc:annotation-driven content-negotiation-manager="contentNegotiationManager">
 		<mvc:message-converters register-defaults="true">
-			将StringHttpMessageConverter的默认编码设为UTF-8
+			<!-- 将StringHttpMessageConverter的默认编码设为UTF-8 -->
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
 		    	<constructor-arg value="UTF-8" />
 			</bean>
-			将Jackson2HttpMessageConverter的默认格式化输出为true
+			<!-- 将Jackson2HttpMessageConverter的默认格式化输出为true -->
 			<bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
                 <property name="prettyPrint" value="true"/>
                 <property name="objectMapper">  
                     <bean class="com.thinkgem.jeesite.common.mapper.JsonMapper"></bean>  
                 </property> 
             </bean>
-            使用XML格式输出数据
+           <!--  使用XML格式输出数据 -->
             <bean class="org.springframework.http.converter.xml.MarshallingHttpMessageConverter">
 		        <constructor-arg>
 		        	<bean class="org.springframework.oxm.xstream.XStreamMarshaller">
@@ -51,7 +51,7 @@
 				<constructor-arg value="false"/>
 			</bean>
 		</mvc:argument-resolvers>
-	</mvc:annotation-driven> -->
+	</mvc:annotation-driven>
 	
     <!-- REST中根据URL后缀自动判定Content-Type及相应的View -->
 	<bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">

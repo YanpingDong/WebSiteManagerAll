@@ -32,7 +32,6 @@ import com.thinkgem.jeesite.common.utils.Reflections;
 
 /**
  * @author 薛定谔的猫
- *
  */
 public class SecureModelAttributeMethodArgumentResolver implements HandlerMethodArgumentResolver {
 
