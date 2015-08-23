@@ -41,7 +41,7 @@ public class Page<T> {
 	private int length = 8;// 显示页面长度
 	private int slider = 1;// 前后显示页面长度
 	
-	private List<T> list = new ArrayList<T>();
+	private List<T> list = new ArrayList<T>(); //actual value list of object
 	
 	private String orderBy = ""; // 标准查询有效， 实例： updatedate desc, name asc
 	
