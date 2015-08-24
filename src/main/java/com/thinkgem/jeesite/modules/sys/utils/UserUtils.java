@@ -141,11 +141,11 @@ public class UserUtils extends BaseService {
 		List<Office> officeList = (List<Office>)getCache(CACHE_OFFICE_LIST);
 		if (officeList == null){
 			User user = getUser();
-//			if (user.isAdmin()){
-//				officeList = officeDao.findAllList();
-//			}else{
-//				officeList = officeDao.findAllChild(user.getOffice().getId(), "%,"+user.getOffice().getId()+",%");
-//			}
+			/*if (user.isAdmin()){
+				officeList = officeDao.findAllList();
+			}else{
+				officeList = officeDao.findAllChild(user.getOffice().getId(), "%,"+user.getOffice().getId()+",%");
+			}*/
 			DetachedCriteria dc = officeDao.createDetachedCriteria();
 			dc.add(dataScopeFilter(user, dc.getAlias(), ""));
 			dc.add(Restrictions.eq(Office.FIELD_DEL_FLAG, Office.DEL_FLAG_NORMAL));

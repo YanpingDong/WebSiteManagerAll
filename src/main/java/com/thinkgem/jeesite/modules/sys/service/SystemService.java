@@ -59,11 +59,6 @@ public class SystemService extends BaseService  {
 	@Autowired
 	private SystemAuthorizingRealm systemRealm;
 	
-	/*@Autowired
-	private IdentityService identityService;*/
-
-	//-- User Service --//
-	
 	public User getUser(String id) {
 		return userDao.get(id);
 	}
@@ -126,15 +121,11 @@ public class SystemService extends BaseService  {
 		userDao.clear();
 		userDao.save(user);
 		systemRealm.clearAllCachedAuthorizationInfo();
-		// 同步到Activiti
-		//saveActiviti(user);
 	}
 
 	@Transactional(readOnly = false)
 	public void deleteUser(String id) {
 		userDao.deleteById(id);
-		// 同步到Activiti
-		//deleteActiviti(userDao.get(id));
 	}
 	
 	@Transactional(readOnly = false)
@@ -189,8 +180,6 @@ public class SystemService extends BaseService  {
 		roleDao.save(role);
 		systemRealm.clearAllCachedAuthorizationInfo();
 		UserUtils.removeCache(UserUtils.CACHE_ROLE_LIST);
-		// 同步到Activiti
-		//saveActiviti(role);
 	}
 
 	@Transactional(readOnly = false)
@@ -198,8 +187,6 @@ public class SystemService extends BaseService  {
 		roleDao.deleteById(id);
 		systemRealm.clearAllCachedAuthorizationInfo();
 		UserUtils.removeCache(UserUtils.CACHE_ROLE_LIST);
-		// 同步到Activiti
-		//deleteActiviti(roleDao.get(id));
 	}
 	
 	@Transactional(readOnly = false)
@@ -207,7 +194,6 @@ public class SystemService extends BaseService  {
 		User user = userDao.get(userId);
 		List<String> roleIds = user.getRoleIdList();
 		List<Role> roles = user.getRoleList();
-		// 
 		if (roleIds.contains(role.getId())) {
 			roles.remove(role);
 			saveUser(user);
