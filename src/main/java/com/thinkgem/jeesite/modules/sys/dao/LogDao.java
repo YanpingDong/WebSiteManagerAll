@@ -17,5 +17,5 @@ import com.thinkgem.jeesite.modules.sys.entity.Log;
  */
 @Repository
 public class LogDao extends BaseDao<Log> {
-
+ 
 }

@@ -64,12 +64,6 @@
 			</div>
 		</div>
 		<div class="control-group">
-			<label class="control-label" for="isActiviti">同步到工作流:</label>
-			<div class="controls">
-				<form:radiobuttons path="isActiviti" items="${fns:getDictList('yes_no')}" itemLabel="label" itemValue="value" htmlEscape="false" class="required"/>
-			</div>
-		</div>
-		<div class="control-group">
 			<label class="control-label" for="permission">权限标识:</label>
 			<div class="controls">
 				<form:input path="permission" htmlEscape="false" maxlength="100"/>
