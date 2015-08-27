@@ -148,30 +148,7 @@
 	      <artifactId>cassandra-driver-core</artifactId>
 	      <version>1.0.3</version>
         </dependency>
-		<!-- ERMaster begin -->
-		<dependency>
-		    <groupId>org.eclipse</groupId>
-		    <artifactId>swt</artifactId>
-		    <version>3.3.0-v3346</version>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse</groupId>
-			<artifactId>draw2d</artifactId>
-			<version>3.2.100-v20070529</version>
-		</dependency>
-		<dependency>
-			<groupId>org.eclipse</groupId>
-			<artifactId>jface</artifactId>
-			<version>3.3.0-I20070606-0010</version>
-		</dependency>
-		<dependency>
-            <groupId>org.insightech.er</groupId>
-            <artifactId>ERMaster</artifactId>
-            <version>20121127-2328</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/org.insightech.er_1.0.0.v20121127-2328.jar</systemPath>
-        </dependency>
-		<!-- ERMaster end -->
+		
 		<dependency>
 		   <groupId>bitwalker</groupId>
 		   <artifactId>UserAgentUtils</artifactId>
@@ -239,19 +216,6 @@
 			<artifactId>spring-jdbc</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
-		
-		<!-- spring data jpa
-		<dependency>
-	    	<groupId>org.springframework.data</groupId>
-	    	<artifactId>spring-data-jpa</artifactId>
-	    	<version>${spring-data-jpa.version}</version>
-			<exclusions>
-				<exclusion>
-					<groupId>junit</groupId>
-					<artifactId>junit-dep</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency> -->
 		<!-- SPRING end -->
 		
 		<!-- AOP begin -->
@@ -279,12 +243,7 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>${hibernate.version}</version>
-		</dependency><!-- jpa
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>${hibernate.version}</version>
-		</dependency> -->
+		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-ehcache</artifactId>

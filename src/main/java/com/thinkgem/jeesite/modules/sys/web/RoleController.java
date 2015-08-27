@@ -45,9 +45,6 @@ public class RoleController extends BaseController {
 	@Autowired
 	private SystemService systemService;
 	
-//	@Autowired
-//	private CategoryService categoryService;
-
 	@Autowired
 	private OfficeService officeService;
 	
@@ -76,7 +73,6 @@ public class RoleController extends BaseController {
 		}
 		model.addAttribute("role", role);
 		model.addAttribute("menuList", systemService.findAllMenu());
-//		model.addAttribute("categoryList", categoryService.findByUser(false, null));
 		model.addAttribute("officeList", officeService.findAll());
 		return "modules/sys/roleForm";
 	}
