@@ -111,17 +111,16 @@ public class MenuController extends BaseController {
 	/**
 	 * 同步工作流权限数据
 	 */
-	@RequiresPermissions("sys:menu:edit")
+	/*@RequiresPermissions("sys:menu:edit")
 	@RequestMapping(value = "synToActiviti")
 	public String synToActiviti(RedirectAttributes redirectAttributes) {
 		if(Global.isDemoMode()){
 			addMessage(redirectAttributes, "演示模式，不允许操作！");
 			return "redirect:"+Global.getAdminPath()+"/sys/menu/";
 		}
-		//systemService.synToActiviti();
     	addMessage(redirectAttributes, "同步工作流权限数据成功!");
 		return "redirect:"+Global.getAdminPath()+"/sys/menu/";
-	}
+	}*/
 	
 	
 	/**
