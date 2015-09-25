@@ -67,18 +67,18 @@ $.validator.setDefaults({
 function tableSort( configuration ){
 	
 	var defaults = {
-		orderBy : '#orderBy', // 排序字段
-		contentTable : '#contentTable', // 表格
+		orderBy : '#orderBy', // 排序字段 id=orderBy
+		contentTable : '#contentTable', // 表格 id=contentTable
 		sortClass : 'sort', // 标志要排序的列的class
-		callBack : $.noop // 回调函数
+		callBack : $.noop // 回调函数 默认为空回调
 	};
 	
 	var config = $.extend({}, defaults, configuration);
 	
 	var $orderBy = $(config.orderBy),
-		  $sortCol = $(config.contentTable + " th." + config.sortClass),
-	 	  orderBy = $orderBy.val().split(" ");
-
+		$sortCol = $(config.contentTable + " th." + config.sortClass), //$(#contentTable th.sort)
+	 	orderBy = $orderBy.val().split(" ");
+    //设置上/下箭头图标
 	$sortCol.each(function(){
 		if ($(this).hasClass(orderBy[0])){
 			orderBy[1] = orderBy[1]&&orderBy[1].toUpperCase() == "DESC" ? "down" : "up";
@@ -96,7 +96,7 @@ function tableSort( configuration ){
 		
 		if (order == sort[0]){
 			sort = (sort[1]&&sort[1].toUpperCase()=="DESC" ? "ASC" : "DESC");
-			$orderBy.val(order + " DESC" != order+" " + sort ? "" : order + " " + sort);
+			$orderBy.val(order + " DESC" != order+" " + sort ? "" : order + " " + sort); // (order + " DESC") != (order+" " + sort) ? "" : (order + " " + sort)
 		}else{
 			$orderBy.val(order + " ASC");
 		}
