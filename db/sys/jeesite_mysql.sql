@@ -9,7 +9,6 @@ DROP TABLE sys_office;
 DROP TABLE sys_area;
 DROP TABLE sys_dict;
 DROP TABLE sys_log;
-DROP TABLE sys_mdict;
 DROP TABLE sys_role_menu;
 DROP TABLE sys_menu;
 DROP TABLE sys_role;
@@ -69,25 +68,6 @@ CREATE TABLE sys_log
 	exception text COMMENT '异常信息',
 	PRIMARY KEY (id)
 ) COMMENT = '日志表';
-
-
-CREATE TABLE sys_mdict
-(
-	id varchar(64) NOT NULL COMMENT '编号',
-	parent_id varchar(64) NOT NULL COMMENT '父级编号',
-	parent_ids varchar(2000) NOT NULL COMMENT '所有父级编号',
-	name varchar(100) NOT NULL COMMENT '角色名称',
-	description varchar(100) COMMENT '描述',
-	sort int COMMENT '排序（升序）',
-	create_by varchar(64) COMMENT '创建者',
-	create_date datetime COMMENT '创建时间',
-	update_by varchar(64) COMMENT '更新者',
-	update_date datetime COMMENT '更新时间',
-	remarks varchar(255) COMMENT '备注信息',
-	del_flag char(1) DEFAULT '0' NOT NULL COMMENT '删除标记',
-	PRIMARY KEY (id)
-) COMMENT = '多级字典表';
-
 
 CREATE TABLE sys_menu
 (

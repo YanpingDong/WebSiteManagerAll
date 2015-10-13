@@ -185,7 +185,8 @@ public class UserUtils extends BaseService {
 	}
 	
 	/**
-	 * Get cache from principal if existed
+	 * Get cache from principal if existed. 
+	 * when pricipal finished,the related cached will auto  recycle
 	 */
 	public static Map<String, Object> getCacheMap(){
 		Map<String, Object> map = Maps.newHashMap();
