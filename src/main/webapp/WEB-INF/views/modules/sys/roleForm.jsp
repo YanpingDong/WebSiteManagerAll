@@ -15,6 +15,7 @@
 				messages: {
 					name: {remote: "角色名已存在"}
 				},
+				//inputForm提交数据前获取选择的菜单ID与OfficeID
 				submitHandler: function(form){
 					var ids = [], nodes = tree.getCheckedNodes(true);
 					for(var i=0; i<nodes.length; i++) {

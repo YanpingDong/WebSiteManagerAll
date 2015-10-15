@@ -26,7 +26,7 @@
 			$("#assignButton").click(function(){
 				top.$.jBox.open("iframe:${ctx}/sys/role/usertorole?id=${role.id}", "分配角色",810,$(top.document).height()-240,{
 					buttons:{"确定分配":"ok", "清除已选":"clear", "关闭":true}, bottomText:"通过选择部门，然后为列出的人员分配角色。",submit:function(v, h, f){
-						var pre_ids = h.find("iframe")[0].contentWindow.pre_ids;
+						var pre_ids = h.find("iframe")[0].contentWindow.pre_ids; 
 						var ids = h.find("iframe")[0].contentWindow.ids;
 						//nodes = selectedTree.getSelectedNodes();
 						if (v=="ok"){
@@ -48,6 +48,7 @@
 					    	$('#assignRoleForm').attr('action','${ctx}/sys/role/assignrole?id=${role.id}&idsArr='+idsArr).submit();
 					    	return true;
 						} else if (v=="clear"){
+							// 调用selectUserToRole.jsp中的方法
 							h.find("iframe")[0].contentWindow.clearAssign();
 							return false;
 		                }

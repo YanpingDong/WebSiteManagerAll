@@ -18,7 +18,7 @@
 	    		$("#icons li i").removeClass("icon-white");
 	    		$(this).addClass("active");
 	    		$(this).children("i").addClass("icon-white");
-	    		$("#icon").val($(this).text());
+	    		$("#icon").val($(this).text());  //write value to icon
 	    	});
 	    	$("#icons li").each(function(){
 	    		if ($(this).text()=="${value}"){
@@ -32,7 +32,7 @@
     </script>
 </head>
 <body>
-<input type="hidden" id="icon" value="${value}" />
+<input type="hidden" id="icon" value="${value}" />  
 <ul class="the-icons clearfix" id="icons">
     <li><i class="icon-glass"></i>glass</li>
     <li><i class="icon-music"></i>music</li>

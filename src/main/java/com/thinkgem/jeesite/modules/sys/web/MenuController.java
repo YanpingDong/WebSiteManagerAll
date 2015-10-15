@@ -130,11 +130,12 @@ public class MenuController extends BaseController {
 		return "redirect:"+Global.getAdminPath()+"/sys/menu/";
 	}
 	
+	//给zTree返回结构
 	@RequiresUser
 	@ResponseBody
-	@RequestMapping(value = "treeData")
+	@RequestMapping(value = "treeData") 
 	public List<Map<String, Object>> treeData(@RequestParam(required=false) Long extId, HttpServletResponse response) {
-		response.setContentType("application/json; charset=UTF-8");
+		response.setContentType("application/json; charset=UTF-8"); //这句很关键
 		List<Map<String, Object>> mapList = Lists.newArrayList();
 		List<Menu> list = systemService.findAllMenu();
 		for (int i=0; i<list.size(); i++){

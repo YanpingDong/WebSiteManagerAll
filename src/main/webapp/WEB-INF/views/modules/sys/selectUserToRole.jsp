@@ -40,35 +40,37 @@
 		         pId:"0",
 		         name:"<font color='red' style='font-weight:bold;'>${user.name}</font>"},
 		        </c:forEach>];
-		
+		//selectIds来自后台数据：/sys/role/usertorole
 		var pre_ids = "${selectIds}".split(",");
 		var ids = "${selectIds}".split(",");
 		
 		//点击选择项回调
 		function treeOnClick(event, treeId, treeNode, clickFlag){
 			if("officeTree"==treeId){
+				//从后台获取数据，创建该Office下的用户树
 				$.get("${ctx}/sys/role/users?officeId=" + treeNode.id, function(userNodes){
-					$.fn.zTree.init($("#userTree"), setting, userNodes);
+					$.fn.zTree.init($("#userTree"), setting, userNodes);  
 				});
 			}
 			if("userTree"==treeId){
 				//alert(treeNode.id + " | " + ids);
 				//alert(typeof ids[0] + " | " +  typeof treeNode.id);
-				if($.inArray(String(treeNode.id), ids)<0){
-					selectedTree.addNodes(null, treeNode);
-					ids.push(String(treeNode.id));
+				if($.inArray(String(treeNode.id), ids)<0){ // 被点击的节点对象.id不包含在ids中
+					selectedTree.addNodes(null, treeNode); // 将被点击的节点对象加入selectedTree ZTree对象中
+					ids.push(String(treeNode.id));   // 将被点击的节点对象的.id值加入ids数组中
 				}
 			}
             if("selectedTree"==treeId){
-                if($.inArray(String(treeNode.id), pre_ids)<0){
-                    selectedTree.removeNode(treeNode);
-                    ids.splice($.inArray(String(treeNode.id), ids), 1);
+                if($.inArray(String(treeNode.id), pre_ids)<0){ // 被点击的节点对象.id不包含在以前所设置的ids中
+                    selectedTree.removeNode(treeNode); // 将被点击的节点对象从selectedTree ZTree对象中删除
+                    ids.splice($.inArray(String(treeNode.id), ids), 1); // 将被点击的节点对象的.id值从ids数组中删除
                 }else{
                     top.$.jBox.tip("只能删除新添加人员！", 'info');
                 }
             }
 		}
-				
+		
+		//在roleAssign.jsp中让jBox的clear操作调用
 		function clearAssign(){
 			var submit = function (v, h, f) {
 			    if (v == 'ok'){

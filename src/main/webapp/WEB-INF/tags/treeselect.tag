@@ -37,9 +37,9 @@
 			buttons:{"确定":"ok", ${allowClear ? "\"清除\" : \"clear\", ":""}"关闭":true}, submit:function(v, h, f){
 				if (v=="ok"){
 					var ids = [], 
-						  names = [], 
-						  nodes = [],
-						  tree = h.find("iframe")[0].contentWindow.tree; //h.find("iframe").contents();
+						names = [], 
+						nodes = [],
+						tree = h.find("iframe")[0].contentWindow.tree; //h.find("iframe").contents();
 						  
 					if ("${checked}"){
 						nodes = tree.getCheckedNodes(); //省略checked参数，等同于 true
