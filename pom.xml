@@ -141,25 +141,18 @@
 	</pluginRepositories> 
 	
 	<!-- 依赖项定义 -->
-	<dependencies>
-	    <!-- cassandra begin -->
-	    <dependency>
-	      <groupId>com.datastax.cassandra</groupId>
-	      <artifactId>cassandra-driver-core</artifactId>
-	      <version>1.0.3</version>
-        </dependency>
-		
+	<dependencies>	
 		<dependency>
 		   <groupId>bitwalker</groupId>
 		   <artifactId>UserAgentUtils</artifactId>
 		   <version>1.13</version>
 		</dependency>
-		<dependency>
+		<!-- <dependency>
 		    <groupId>org.zeroturnaround</groupId>
 		    <artifactId>zt-zip</artifactId>
 		    <version>1.6</version>
 		    <type>jar</type>
-		</dependency>
+		</dependency> -->
 	
 		<!-- SPRING begin -->
 		<dependency>
@@ -219,7 +212,7 @@
 		<!-- SPRING end -->
 		
 		<!-- AOP begin -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.aspectj</groupId>
 			<artifactId>aspectjrt</artifactId>
 			<version>1.7.4</version>
@@ -234,7 +227,7 @@
 			<artifactId>cglib</artifactId>
 			<version>3.1</version>
 			<scope>runtime</scope>
-		</dependency>
+		</dependency> -->
 		<!-- AOP end -->
 
 		<!-- PERSISTENCE begin -->
@@ -260,7 +253,7 @@
 		    <version>${hibernate-search.version}</version>
 		</dependency>
         <!-- MyBatis -->
-        <dependency>
+        <!-- <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
             <version>${mybatis.version}</version>
@@ -269,7 +262,7 @@
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
             <version>${mybatis-spring.version}</version>
-        </dependency>
+        </dependency> -->
 		
         <!-- 中文分词 -->
 		<dependency>
@@ -520,23 +513,23 @@
 		</dependency>
        	
         <!-- freemarker engine -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.freemarker</groupId>
 			<artifactId>freemarker</artifactId>
 			<version>${freemarker.version}</version>
-		</dependency>
+		</dependency> -->
 		
 		<!-- email -->
-		<dependency>
+		<!-- <dependency>
 		    <groupId>javax.mail</groupId>
 		    <artifactId>mail</artifactId>
 		    <version>1.4.7</version>
-		</dependency>
+		</dependency> 
 		<dependency>
 		    <groupId>javax.activation</groupId>
 		    <artifactId>activation</artifactId>
 		    <version>1.1.1</version>
-		</dependency>
+		</dependency>  -->
 		
 		<!-- poi office -->
 	  	<dependency>
@@ -564,7 +557,7 @@
 		<!-- GENERAL UTILS end -->
 		
 		<!-- CKFinder begin -->
-		<dependency>
+		<!-- <dependency>
 		    <groupId>net.coobird</groupId>
 		    <artifactId>thumbnailator</artifactId>
 		    <version>0.4.2</version>
@@ -588,7 +581,7 @@
             <groupId>com.ckfinder</groupId>
             <artifactId>ckfinderplugin-imageresize</artifactId>
             <version>2.3</version>
-        </dependency>
+        </dependency> -->
 		<!-- CKFinder end -->
 		
 		<!-- TEST begin -->
