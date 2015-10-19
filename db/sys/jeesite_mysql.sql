@@ -186,7 +186,6 @@ CREATE TABLE sys_user_role
 /* Create Indexes */
 
 CREATE INDEX sys_area_parent_id ON sys_area (parent_id ASC);
-CREATE INDEX sys_area_parent_ids ON sys_area (parent_ids ASC);
 CREATE INDEX sys_area_del_flag ON sys_area (del_flag ASC);
 CREATE INDEX sys_dict_value ON sys_dict (value ASC);
 CREATE INDEX sys_dict_label ON sys_dict (label ASC);
@@ -195,14 +194,9 @@ CREATE INDEX sys_log_create_by ON sys_log (create_by ASC);
 CREATE INDEX sys_log_request_uri ON sys_log (request_uri ASC);
 CREATE INDEX sys_log_type ON sys_log (type ASC);
 CREATE INDEX sys_log_create_date ON sys_log (create_date ASC);
-CREATE INDEX sys_mdict_parent_id ON sys_mdict (parent_id ASC);
-CREATE INDEX sys_mdict_parent_ids ON sys_mdict (parent_ids ASC);
-CREATE INDEX sys_mdict_del_flag ON sys_mdict (del_flag ASC);
 CREATE INDEX sys_menu_parent_id ON sys_menu (parent_id ASC);
-CREATE INDEX sys_menu_parent_ids ON sys_menu (parent_ids ASC);
 CREATE INDEX sys_menu_del_flag ON sys_menu (del_flag ASC);
 CREATE INDEX sys_office_parent_id ON sys_office (parent_id ASC);
-CREATE INDEX sys_office_parent_ids ON sys_office (parent_ids ASC);
 CREATE INDEX sys_office_del_flag ON sys_office (del_flag ASC);
 CREATE INDEX sys_role_del_flag ON sys_role (del_flag ASC);
 CREATE INDEX sys_user_office_id ON sys_user (office_id ASC);
@@ -210,6 +204,5 @@ CREATE INDEX sys_user_login_name ON sys_user (login_name ASC);
 CREATE INDEX sys_user_company_id ON sys_user (company_id ASC);
 CREATE INDEX sys_user_update_date ON sys_user (update_date ASC);
 CREATE INDEX sys_user_del_flag ON sys_user (del_flag ASC);
-
 
 

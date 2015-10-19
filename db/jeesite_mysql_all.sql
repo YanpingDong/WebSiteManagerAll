@@ -2,278 +2,7 @@
 SQLyog v10.2 
 MySQL - 5.1.33-community : Database - jeesite
 *********************************************************************
-*/
-
-
-/*Table structure for table `cms_article` */
-
-DROP TABLE IF EXISTS `cms_article`;
-
-CREATE TABLE `cms_article` (
-  `id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '编号',
-  `category_id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '栏目编号',
-  `title` varchar(255) COLLATE utf8_bin NOT NULL COMMENT '标题',
-  `link` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '文章链接',
-  `color` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '标题颜色',
-  `image` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '文章图片',
-  `keywords` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '关键字',
-  `description` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '描述、摘要',
-  `weight` int(11) DEFAULT '0' COMMENT '权重，越大越靠前',
-  `weight_date` datetime DEFAULT NULL COMMENT '权重期限',
-  `hits` int(11) DEFAULT '0' COMMENT '点击数',
-  `posid` varchar(10) COLLATE utf8_bin DEFAULT NULL COMMENT '推荐位，多选',
-  `custom_content_view` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '自定义内容视图',
-  `view_config` text COLLATE utf8_bin COMMENT '视图配置',
-  `create_by` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '创建者',
-  `create_date` datetime DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '更新者',
-  `update_date` datetime DEFAULT NULL COMMENT '更新时间',
-  `remarks` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '备注信息',
-  `del_flag` char(1) COLLATE utf8_bin NOT NULL DEFAULT '0' COMMENT '删除标记',
-  PRIMARY KEY (`id`),
-  KEY `cms_article_create_by` (`create_by`),
-  KEY `cms_article_title` (`title`),
-  KEY `cms_article_keywords` (`keywords`),
-  KEY `cms_article_del_flag` (`del_flag`),
-  KEY `cms_article_weight` (`weight`),
-  KEY `cms_article_update_date` (`update_date`),
-  KEY `cms_article_category_id` (`category_id`),
-  KEY `cms_article_id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='文章表';
-
-/*Data for the table `cms_article` */
-
-insert  into `cms_article`(`id`,`category_id`,`title`,`link`,`color`,`image`,`keywords`,`description`,`weight`,`weight_date`,`hits`,`posid`,`custom_content_view`,`view_config`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag`) values ('1','3','文章标题标题标题标题',NULL,'green',NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('2','3','文章标题标题标题标题',NULL,'red',NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('3','3','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('4','3','文章标题标题标题标题',NULL,'green',NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('5','3','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('6','3','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('7','4','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('8','4','文章标题标题标题标题',NULL,'blue',NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('9','4','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('10','4','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('11','5','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('12','5','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('13','5','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('14','7','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('15','7','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('16','7','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('17','7','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('18','8','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('19','8','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('20','8','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('21','8','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('22','9','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('23','9','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('24','9','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('25','9','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('26','9','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('27','11','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('28','11','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('29','11','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('30','11','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('31','11','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('32','12','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('33','12','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('34','12','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('35','12','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('36','12','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('37','13','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('38','13','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('39','13','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('40','13','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('41','14','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('42','14','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('43','14','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('44','14','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('45','14','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('46','15','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('47','15','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('48','15','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('49','16','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('50','17','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('51','17','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('52','26','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('53','26','文章标题标题标题标题',NULL,NULL,NULL,'关键字1,关键字2',NULL,0,NULL,0,NULL,NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0');
-
-/*Table structure for table `cms_article_data` */
-
-DROP TABLE IF EXISTS `cms_article_data`;
-
-CREATE TABLE `cms_article_data` (
-  `id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '编号',
-  `content` text COLLATE utf8_bin COMMENT '文章内容',
-  `copyfrom` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '文章来源',
-  `relation` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '相关文章',
-  `allow_comment` char(1) COLLATE utf8_bin DEFAULT NULL COMMENT '是否允许评论',
-  PRIMARY KEY (`id`),
-  KEY `cms_article_data_id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='文章详表';
-
-/*Data for the table `cms_article_data` */
-
-insert  into `cms_article_data`(`id`,`content`,`copyfrom`,`relation`,`allow_comment`) values ('1','文章内容内容内容内容','来源','1,2,3','1'),('2','文章内容内容内容内容','来源','1,2,3','1'),('3','文章内容内容内容内容','来源','1,2,3','1'),('4','文章内容内容内容内容','来源','1,2,3','1'),('5','文章内容内容内容内容','来源','1,2,3','1'),('6','文章内容内容内容内容','来源','1,2,3','1'),('7','文章内容内容内容内容','来源','1,2,3','1'),('8','文章内容内容内容内容','来源','1,2,3','1'),('9','文章内容内容内容内容','来源','1,2,3','1'),('10','文章内容内容内容内容','来源','1,2,3','1'),('11','文章内容内容内容内容','来源','1,2,3','1'),('12','文章内容内容内容内容','来源','1,2,3','1'),('13','文章内容内容内容内容','来源','1,2,3','1'),('14','文章内容内容内容内容','来源','1,2,3','1'),('15','文章内容内容内容内容','来源','1,2,3','1'),('16','文章内容内容内容内容','来源','1,2,3','1'),('17','文章内容内容内容内容','来源','1,2,3','1'),('18','文章内容内容内容内容','来源','1,2,3','1'),('19','文章内容内容内容内容','来源','1,2,3','1'),('20','文章内容内容内容内容','来源','1,2,3','1'),('21','文章内容内容内容内容','来源','1,2,3','1'),('22','文章内容内容内容内容','来源','1,2,3','1'),('23','文章内容内容内容内容','来源','1,2,3','1'),('24','文章内容内容内容内容','来源','1,2,3','1'),('25','文章内容内容内容内容','来源','1,2,3','1'),('26','文章内容内容内容内容','来源','1,2,3','1'),('27','文章内容内容内容内容','来源','1,2,3','1'),('28','文章内容内容内容内容','来源','1,2,3','1'),('29','文章内容内容内容内容','来源','1,2,3','1'),('30','文章内容内容内容内容','来源','1,2,3','1'),('31','文章内容内容内容内容','来源','1,2,3','1'),('32','文章内容内容内容内容','来源','1,2,3','1'),('33','文章内容内容内容内容','来源','1,2,3','1'),('34','文章内容内容内容内容','来源','1,2,3','1'),('35','文章内容内容内容内容','来源','1,2,3','1'),('36','文章内容内容内容内容','来源','1,2,3','1'),('37','文章内容内容内容内容','来源','1,2,3','1'),('38','文章内容内容内容内容','来源','1,2,3','1'),('39','文章内容内容内容内容','来源','1,2,3','1'),('40','文章内容内容内容内容','来源','1,2,3','1'),('41','文章内容内容内容内容','来源','1,2,3','1'),('42','文章内容内容内容内容','来源','1,2,3','1'),('43','文章内容内容内容内容','来源','1,2,3','1'),('44','文章内容内容内容内容','来源','1,2,3','1'),('45','文章内容内容内容内容','来源','1,2,3','1'),('46','文章内容内容内容内容','来源','1,2,3','1'),('47','文章内容内容内容内容','来源','1,2,3','1'),('48','文章内容内容内容内容','来源','1,2,3','1'),('49','文章内容内容内容内容','来源','1,2,3','1'),('50','文章内容内容内容内容','来源','1,2,3','1'),('51','文章内容内容内容内容','来源','1,2,3','1'),('52','文章内容内容内容内容','来源','1,2,3','1'),('53','文章内容内容内容内容','来源','1,2,3','1');
-
-/*Table structure for table `cms_category` */
-
-DROP TABLE IF EXISTS `cms_category`;
-
-CREATE TABLE `cms_category` (
-  `id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '编号',
-  `site_id` varchar(64) COLLATE utf8_bin DEFAULT '1' COMMENT '站点编号',
-  `office_id` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '归属机构',
-  `parent_id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '父级编号',
-  `parent_ids` varchar(2000) COLLATE utf8_bin NOT NULL COMMENT '所有父级编号',
-  `module` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '栏目模块',
-  `name` varchar(100) COLLATE utf8_bin NOT NULL COMMENT '栏目名称',
-  `image` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '栏目图片',
-  `href` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '链接',
-  `target` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '目标',
-  `description` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '描述',
-  `keywords` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '关键字',
-  `sort` int(11) DEFAULT '30' COMMENT '排序（升序）',
-  `in_menu` char(1) COLLATE utf8_bin DEFAULT '1' COMMENT '是否在导航中显示',
-  `in_list` char(1) COLLATE utf8_bin DEFAULT '1' COMMENT '是否在分类页中显示列表',
-  `show_modes` char(1) COLLATE utf8_bin DEFAULT '0' COMMENT '展现方式',
-  `allow_comment` char(1) COLLATE utf8_bin DEFAULT NULL COMMENT '是否允许评论',
-  `is_audit` char(1) COLLATE utf8_bin DEFAULT NULL COMMENT '是否需要审核',
-  `custom_list_view` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '自定义列表视图',
-  `custom_content_view` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '自定义内容视图',
-  `create_by` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '创建者',
-  `create_date` datetime DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '更新者',
-  `update_date` datetime DEFAULT NULL COMMENT '更新时间',
-  `remarks` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '备注信息',
-  `del_flag` char(1) COLLATE utf8_bin NOT NULL DEFAULT '0' COMMENT '删除标记',
-  `view_config` text COLLATE utf8_bin COMMENT '视图配置',
-  PRIMARY KEY (`id`),
-  KEY `cms_category_parent_id` (`parent_id`),
-  KEY `cms_category_parent_ids` (`parent_ids`(333)),
-  KEY `cms_category_module` (`module`),
-  KEY `cms_category_name` (`name`),
-  KEY `cms_category_sort` (`sort`),
-  KEY `cms_category_del_flag` (`del_flag`),
-  KEY `cms_category_office_id` (`office_id`),
-  KEY `cms_category_site_id` (`site_id`),
-  KEY `cms_category_id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='栏目表';
-
-/*Data for the table `cms_category` */
-
-insert  into `cms_category`(`id`,`site_id`,`office_id`,`parent_id`,`parent_ids`,`module`,`name`,`image`,`href`,`target`,`description`,`keywords`,`sort`,`in_menu`,`in_list`,`show_modes`,`allow_comment`,`is_audit`,`custom_list_view`,`custom_content_view`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag`,`view_config`) values ('1','0','1','0','0,',NULL,'顶级栏目',NULL,NULL,NULL,NULL,NULL,0,'1','1','0','0','1',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('2','1','3','1','0,1,','article','组织机构',NULL,NULL,NULL,NULL,NULL,10,'1','1','0','0','1',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('3','1','3','2','0,1,2,','article','网站简介',NULL,NULL,NULL,NULL,NULL,30,'1','1','0','0','1',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('4','1','3','2','0,1,2,','article','内部机构',NULL,NULL,NULL,NULL,NULL,40,'1','1','0','0','1',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('5','1','3','2','0,1,2,','article','地方机构',NULL,NULL,NULL,NULL,NULL,50,'1','1','0','0','1',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('6','1','3','1','0,1,','article','质量检验',NULL,NULL,NULL,NULL,NULL,20,'1','1','1','1','0',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('7','1','3','6','0,1,6,','article','产品质量',NULL,NULL,NULL,NULL,NULL,30,'1','1','0','1','0',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('8','1','3','6','0,1,6,','article','技术质量',NULL,NULL,NULL,NULL,NULL,40,'1','1','0','1','0',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('9','1','3','6','0,1,6,','article','工程质量',NULL,NULL,NULL,NULL,NULL,50,'1','1','0','1','0',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('10','1','4','1','0,1,','article','软件介绍',NULL,NULL,NULL,NULL,NULL,20,'1','1','0','1','0',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('11','1','4','10','0,1,10,','article','网络工具',NULL,NULL,NULL,NULL,NULL,30,'1','1','0','1','0',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('12','1','4','10','0,1,10,','article','浏览工具',NULL,NULL,NULL,NULL,NULL,40,'1','1','0','1','0',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('13','1','4','10','0,1,10,','article','浏览辅助',NULL,NULL,NULL,NULL,NULL,50,'1','1','0','1','0',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('14','1','4','10','0,1,10,','article','网络优化',NULL,NULL,NULL,NULL,NULL,50,'1','1','0','1','0',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('15','1','4','10','0,1,10,','article','邮件处理',NULL,NULL,NULL,NULL,NULL,50,'1','1','0','1','0',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('16','1','4','10','0,1,10,','article','下载工具',NULL,NULL,NULL,NULL,NULL,50,'1','1','0','1','0',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('17','1','4','10','0,1,10,','article','搜索工具',NULL,NULL,NULL,NULL,NULL,50,'1','1','2','1','0',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('18','1','5','1','0,1,','link','友情链接',NULL,NULL,NULL,NULL,NULL,90,'1','1','0','1','0',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('19','1','5','18','0,1,18,','link','常用网站',NULL,NULL,NULL,NULL,NULL,50,'1','1','0','1','0',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('20','1','5','18','0,1,18,','link','门户网站',NULL,NULL,NULL,NULL,NULL,50,'1','1','0','1','0',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('21','1','5','18','0,1,18,','link','购物网站',NULL,NULL,NULL,NULL,NULL,50,'1','1','0','1','0',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('22','1','5','18','0,1,18,','link','交友社区',NULL,NULL,NULL,NULL,NULL,50,'1','1','0','1','0',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('23','1','5','18','0,1,18,','link','音乐视频',NULL,NULL,NULL,NULL,NULL,50,'1','1','0','1','0',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('24','1','6','1','0,1,',NULL,'百度一下',NULL,'http://www.baidu.com','_blank',NULL,NULL,90,'1','1','0','1','0',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('25','1','6','1','0,1,',NULL,'全文检索',NULL,'/search',NULL,NULL,NULL,90,'0','1','0','1','0',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('26','2','6','1','0,1,','article','测试栏目',NULL,NULL,NULL,NULL,NULL,90,'1','1','0','1','0',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL),('27','1','6','1','0,1,',NULL,'公共留言',NULL,'/guestbook',NULL,NULL,NULL,90,'1','1','0','1','0',NULL,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0',NULL);
-
-/*Table structure for table `cms_comment` */
-
-DROP TABLE IF EXISTS `cms_comment`;
-
-CREATE TABLE `cms_comment` (
-  `id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '编号',
-  `category_id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '栏目编号',
-  `content_id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '栏目内容的编号',
-  `title` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '栏目内容的标题',
-  `content` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '评论内容',
-  `name` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '评论姓名',
-  `ip` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '评论IP',
-  `create_date` datetime NOT NULL COMMENT '评论时间',
-  `audit_user_id` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '审核人',
-  `audit_date` datetime DEFAULT NULL COMMENT '审核时间',
-  `del_flag` char(1) COLLATE utf8_bin NOT NULL DEFAULT '0' COMMENT '删除标记',
-  PRIMARY KEY (`id`),
-  KEY `cms_comment_category_id` (`category_id`),
-  KEY `cms_comment_content_id` (`content_id`),
-  KEY `cms_comment_status` (`del_flag`),
-  KEY `cms_comment_id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='评论表';
-
-/*Data for the table `cms_comment` */
-
-/*Table structure for table `cms_guestbook` */
-
-DROP TABLE IF EXISTS `cms_guestbook`;
-
-CREATE TABLE `cms_guestbook` (
-  `id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '编号',
-  `type` char(1) COLLATE utf8_bin NOT NULL COMMENT '留言分类',
-  `content` varchar(255) COLLATE utf8_bin NOT NULL COMMENT '留言内容',
-  `name` varchar(100) COLLATE utf8_bin NOT NULL COMMENT '姓名',
-  `email` varchar(100) COLLATE utf8_bin NOT NULL COMMENT '邮箱',
-  `phone` varchar(100) COLLATE utf8_bin NOT NULL COMMENT '电话',
-  `workunit` varchar(100) COLLATE utf8_bin NOT NULL COMMENT '单位',
-  `ip` varchar(100) COLLATE utf8_bin NOT NULL COMMENT 'IP',
-  `create_date` datetime NOT NULL COMMENT '留言时间',
-  `re_user_id` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '回复人',
-  `re_date` datetime DEFAULT NULL COMMENT '回复时间',
-  `re_content` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '回复内容',
-  `del_flag` char(1) COLLATE utf8_bin NOT NULL DEFAULT '0' COMMENT '删除标记',
-  PRIMARY KEY (`id`),
-  KEY `cms_guestbook_del_flag` (`del_flag`),
-  KEY `cms_site_id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='留言板';
-
-/*Data for the table `cms_guestbook` */
-
-/*Table structure for table `cms_link` */
-
-DROP TABLE IF EXISTS `cms_link`;
-
-CREATE TABLE `cms_link` (
-  `id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '编号',
-  `category_id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '栏目编号',
-  `title` varchar(255) COLLATE utf8_bin NOT NULL COMMENT '链接名称',
-  `color` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '标题颜色',
-  `image` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '链接图片',
-  `href` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '链接地址',
-  `weight` int(11) DEFAULT '0' COMMENT '权重，越大越靠前',
-  `weight_date` datetime DEFAULT NULL COMMENT '权重期限',
-  `create_by` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '创建者',
-  `create_date` datetime DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '更新者',
-  `update_date` datetime DEFAULT NULL COMMENT '更新时间',
-  `remarks` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '备注信息',
-  `del_flag` char(1) COLLATE utf8_bin NOT NULL DEFAULT '0' COMMENT '删除标记',
-  PRIMARY KEY (`id`),
-  KEY `cms_link_category_id` (`category_id`),
-  KEY `cms_link_title` (`title`),
-  KEY `cms_link_del_flag` (`del_flag`),
-  KEY `cms_link_weight` (`weight`),
-  KEY `cms_link_create_by` (`create_by`),
-  KEY `cms_link_update_date` (`update_date`),
-  KEY `cms_link_id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='友情链接';
-
-/*Data for the table `cms_link` */
-
-insert  into `cms_link`(`id`,`category_id`,`title`,`color`,`image`,`href`,`weight`,`weight_date`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag`) values ('1','19','JeeSite',NULL,NULL,'http://thinkgem.github.com/jeesite',0,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('2','19','ThinkGem',NULL,NULL,'http://thinkgem.iteye.com/',0,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('3','19','百度一下',NULL,NULL,'http://www.baidu.com',0,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('4','19','谷歌搜索',NULL,NULL,'http://www.google.com',0,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('5','20','新浪网',NULL,NULL,'http://www.sina.com.cn',0,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('6','20','腾讯网',NULL,NULL,'http://www.qq.com/',0,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('7','21','淘宝网',NULL,NULL,'http://www.taobao.com/',0,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('8','21','新华网',NULL,NULL,'http://www.xinhuanet.com/',0,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('9','22','赶集网',NULL,NULL,'http://www.ganji.com/',0,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('10','22','58同城',NULL,NULL,'http://www.58.com/',0,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('11','23','视频大全',NULL,NULL,'http://v.360.cn/',0,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('12','23','凤凰网',NULL,NULL,'http://www.ifeng.com/',0,NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0');
-
-/*Table structure for table `cms_site` */
-
-DROP TABLE IF EXISTS `cms_site`;
-
-CREATE TABLE `cms_site` (
-  `id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '编号',
-  `name` varchar(100) COLLATE utf8_bin NOT NULL COMMENT '站点名称',
-  `title` varchar(100) COLLATE utf8_bin NOT NULL COMMENT '站点标题',
-  `logo` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '站点Logo',
-  `domain` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '站点域名',
-  `description` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '描述',
-  `keywords` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '关键字',
-  `theme` varchar(255) COLLATE utf8_bin DEFAULT 'default' COMMENT '主题',
-  `copyright` text COLLATE utf8_bin COMMENT '版权信息',
-  `custom_index_view` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '自定义站点首页视图',
-  `create_by` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '创建者',
-  `create_date` datetime DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '更新者',
-  `update_date` datetime DEFAULT NULL COMMENT '更新时间',
-  `remarks` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '备注信息',
-  `del_flag` char(1) COLLATE utf8_bin NOT NULL DEFAULT '0' COMMENT '删除标记',
-  PRIMARY KEY (`id`),
-  KEY `cms_site_del_flag` (`del_flag`),
-  KEY `cms_site_id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='站点表';
-
-/*Data for the table `cms_site` */
-
-insert  into `cms_site`(`id`,`name`,`title`,`logo`,`domain`,`description`,`keywords`,`theme`,`copyright`,`custom_index_view`,`create_by`,`create_date`,`update_by`,`update_date`,`remarks`,`del_flag`) values ('1','默认站点','JeeSite Web',NULL,NULL,'JeeSite','JeeSite','basic','Copyright &copy; 2012-2013 <a href=\'http://thinkgem.iteye.com\' target=\'_blank\'>ThinkGem</a> - Powered By <a href=\'https://github.com/thinkgem/jeesite\' target=\'_blank\'>JeeSite</a> V1.0',NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0'),('2','子站点测试','JeeSite Subsite',NULL,NULL,'JeeSite subsite','JeeSite subsite','basic','Copyright &copy; 2012-2013 <a href=\'http://thinkgem.iteye.com\' target=\'_blank\'>ThinkGem</a> - Powered By <a href=\'https://github.com/thinkgem/jeesite\' target=\'_blank\'>JeeSite</a> V1.0',NULL,'1','2013-05-27 08:00:00','1','2013-05-27 08:00:00',NULL,'0');
-
-/*Table structure for table `oa_leave` */
-
-DROP TABLE IF EXISTS `oa_leave`;
-
-CREATE TABLE `oa_leave` (
-  `id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '编号',
-  `process_instance_id` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '流程实例编号',
-  `start_time` datetime DEFAULT NULL COMMENT '开始时间',
-  `end_time` datetime DEFAULT NULL COMMENT '结束时间',
-  `leave_type` varchar(20) COLLATE utf8_bin DEFAULT NULL COMMENT '请假类型',
-  `reason` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '请假理由',
-  `apply_time` datetime DEFAULT NULL COMMENT '申请时间',
-  `reality_start_time` datetime DEFAULT NULL COMMENT '实际开始时间',
-  `reality_end_time` datetime DEFAULT NULL COMMENT '实际结束时间',
-  `process_status` varchar(50) COLLATE utf8_bin DEFAULT NULL COMMENT '流程状态',
-  `create_by` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '创建者',
-  `create_date` datetime DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '更新者',
-  `update_date` datetime DEFAULT NULL COMMENT '更新时间',
-  `remarks` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '备注信息',
-  `del_flag` char(1) COLLATE utf8_bin NOT NULL DEFAULT '0' COMMENT '删除标记',
-  PRIMARY KEY (`id`),
-  KEY `oa_leave_create_by` (`create_by`),
-  KEY `oa_leave_process_instance_id` (`process_instance_id`),
-  KEY `oa_leave_del_flag` (`del_flag`),
-  KEY `oa_leave_id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='请假流程表';
-
-/*Data for the table `oa_leave` */
-
-/*Table structure for table `prj_project` */
-
-DROP TABLE IF EXISTS `prj_project`;
-
-CREATE TABLE `prj_project` (
-  `id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '编号',
-  `name` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '名称',
-  `root_package` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '包名',
-  `erm_path` varchar(2000) COLLATE utf8_bin DEFAULT NULL COMMENT '数据文件路径',
-  `create_by` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '创建者',
-  `create_date` datetime DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '更新者',
-  `update_date` datetime DEFAULT NULL COMMENT '更新时间',
-  `remarks` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '备注信息',
-  `del_flag` char(1) COLLATE utf8_bin NOT NULL COMMENT '删除标志',
-  PRIMARY KEY (`id`),
-  KEY `prj_project_id` (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='项目';
-
-/*Data for the table `prj_project` */
+*/
 
 /*Table structure for table `sys_area` */
 
@@ -353,30 +82,7 @@ CREATE TABLE `sys_log` (
 
 /*Data for the table `sys_log` */
 
-/*Table structure for table `sys_mdict` */
 
-DROP TABLE IF EXISTS `sys_mdict`;
-
-CREATE TABLE `sys_mdict` (
-  `id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '编号',
-  `parent_id` varchar(64) COLLATE utf8_bin NOT NULL COMMENT '父级编号',
-  `parent_ids` varchar(2000) COLLATE utf8_bin NOT NULL COMMENT '所有父级编号',
-  `name` varchar(100) COLLATE utf8_bin NOT NULL COMMENT '角色名称',
-  `description` varchar(100) COLLATE utf8_bin DEFAULT NULL COMMENT '描述',
-  `sort` int(11) DEFAULT NULL COMMENT '排序（升序）',
-  `create_by` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '创建者',
-  `create_date` datetime DEFAULT NULL COMMENT '创建时间',
-  `update_by` varchar(64) COLLATE utf8_bin DEFAULT NULL COMMENT '更新者',
-  `update_date` datetime DEFAULT NULL COMMENT '更新时间',
-  `remarks` varchar(255) COLLATE utf8_bin DEFAULT NULL COMMENT '备注信息',
-  `del_flag` char(1) COLLATE utf8_bin NOT NULL DEFAULT '0' COMMENT '删除标记',
-  PRIMARY KEY (`id`),
-  KEY `sys_mdict_parent_id` (`parent_id`),
-  KEY `sys_mdict_parent_ids` (`parent_ids`(333)),
-  KEY `sys_mdict_del_flag` (`del_flag`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='多级字典表';
-
-/*Data for the table `sys_mdict` */
 
 /*Table structure for table `sys_menu` */
 
@@ -546,3 +252,209 @@ CREATE TABLE `sys_user_role` (
 
 insert  into `sys_user_role`(`user_id`,`role_id`) values ('1','1'),('10','2'),('11','3'),('12','4'),('13','5'),('14','6'),('2','1'),('3','2'),('4','3'),('5','4'),('6','5'),('7','2'),('7','7'),('8','2'),('9','1');
 
+SET SESSION FOREIGN_KEY_CHECKS=0;
+
+/* Drop Tables */
+
+DROP TABLE sys_role_office;
+DROP TABLE sys_user_role;
+DROP TABLE sys_user;
+DROP TABLE sys_office;
+DROP TABLE sys_area;
+DROP TABLE sys_dict;
+DROP TABLE sys_log;
+DROP TABLE sys_role_menu;
+DROP TABLE sys_menu;
+DROP TABLE sys_role;
+
+
+
+
+/* Create Tables */
+
+CREATE TABLE sys_area
+(
+	id varchar(64) NOT NULL COMMENT '编号',
+	parent_id varchar(64) NOT NULL COMMENT '父级编号',
+	parent_ids varchar(2000) NOT NULL COMMENT '所有父级编号',
+	code varchar(100) COMMENT '区域编码',
+	name varchar(100) NOT NULL COMMENT '区域名称',
+	type char(1) COMMENT '区域类型',
+	create_by varchar(64) COMMENT '创建者',
+	create_date datetime COMMENT '创建时间',
+	update_by varchar(64) COMMENT '更新者',
+	update_date datetime COMMENT '更新时间',
+	remarks varchar(255) COMMENT '备注信息',
+	del_flag char(1) DEFAULT '0' NOT NULL COMMENT '删除标记',
+	PRIMARY KEY (id)
+) COMMENT = '区域表';
+
+
+CREATE TABLE sys_dict
+(
+	id varchar(64) NOT NULL COMMENT '编号',
+	label varchar(100) NOT NULL COMMENT '标签名',
+	value varchar(100) NOT NULL COMMENT '数据值',
+	type varchar(100) NOT NULL COMMENT '类型',
+	description varchar(100) NOT NULL COMMENT '描述',
+	sort int NOT NULL COMMENT '排序（升序）',
+	create_by varchar(64) COMMENT '创建者',
+	create_date datetime COMMENT '创建时间',
+	update_by varchar(64) COMMENT '更新者',
+	update_date datetime COMMENT '更新时间',
+	remarks varchar(255) COMMENT '备注信息',
+	del_flag char(1) DEFAULT '0' NOT NULL COMMENT '删除标记',
+	PRIMARY KEY (id)
+) COMMENT = '字典表';
+
+
+CREATE TABLE sys_log
+(
+	id varchar(64) NOT NULL COMMENT '编号',
+	type char(1) DEFAULT '1' COMMENT '日志类型',
+	create_by varchar(64) COMMENT '创建者',
+	create_date datetime COMMENT '创建时间',
+	remote_addr varchar(255) COMMENT '操作IP地址',
+	user_agent varchar(255) COMMENT '用户代理',
+	request_uri varchar(255) COMMENT '请求URI',
+	method varchar(5) COMMENT '操作方式',
+	params text COMMENT '操作提交的数据',
+	exception text COMMENT '异常信息',
+	PRIMARY KEY (id)
+) COMMENT = '日志表';
+
+CREATE TABLE sys_menu
+(
+	id varchar(64) NOT NULL COMMENT '编号',
+	parent_id varchar(64) NOT NULL COMMENT '父级编号',
+	parent_ids varchar(2000) NOT NULL COMMENT '所有父级编号',
+	name varchar(100) NOT NULL COMMENT '菜单名称',
+	href varchar(255) COMMENT '链接',
+	target varchar(20) COMMENT '目标',
+	icon varchar(100) COMMENT '图标',
+	sort int NOT NULL COMMENT '排序（升序）',
+	is_show char(1) NOT NULL COMMENT '是否在菜单中显示',
+	permission varchar(200) COMMENT '权限标识',
+	create_by varchar(64) COMMENT '创建者',
+	create_date datetime COMMENT '创建时间',
+	update_by varchar(64) COMMENT '更新者',
+	update_date datetime COMMENT '更新时间',
+	remarks varchar(255) COMMENT '备注信息',
+	del_flag char(1) DEFAULT '0' NOT NULL COMMENT '删除标记',
+	PRIMARY KEY (id)
+) COMMENT = '菜单表';
+
+
+CREATE TABLE sys_office
+(
+	id varchar(64) NOT NULL COMMENT '编号',
+	parent_id varchar(64) NOT NULL COMMENT '父级编号',
+	parent_ids varchar(2000) NOT NULL COMMENT '所有父级编号',
+	area_id varchar(64) NOT NULL COMMENT '归属区域',
+	code varchar(100) COMMENT '区域编码',
+	name varchar(100) NOT NULL COMMENT '机构名称',
+	type char(1) NOT NULL COMMENT '机构类型',
+	grade char(1) NOT NULL COMMENT '机构等级',
+	address varchar(255) COMMENT '联系地址',
+	zip_code varchar(100) COMMENT '邮政编码',
+	master varchar(100) COMMENT '负责人',
+	phone varchar(200) COMMENT '电话',
+	fax varchar(200) COMMENT '传真',
+	email varchar(200) COMMENT '邮箱',
+	create_by varchar(64) COMMENT '创建者',
+	create_date datetime COMMENT '创建时间',
+	update_by varchar(64) COMMENT '更新者',
+	update_date datetime COMMENT '更新时间',
+	remarks varchar(255) COMMENT '备注信息',
+	del_flag char(1) DEFAULT '0' NOT NULL COMMENT '删除标记',
+	PRIMARY KEY (id)
+) COMMENT = '机构表';
+
+
+CREATE TABLE sys_role
+(
+	id varchar(64) NOT NULL COMMENT '编号',
+	office_id varchar(64) COMMENT '归属机构',
+	name varchar(100) NOT NULL COMMENT '角色名称',
+	data_scope char(1) COMMENT '数据范围',
+	create_by varchar(64) COMMENT '创建者',
+	create_date datetime COMMENT '创建时间',
+	update_by varchar(64) COMMENT '更新者',
+	update_date datetime COMMENT '更新时间',
+	remarks varchar(255) COMMENT '备注信息',
+	del_flag char(1) DEFAULT '0' NOT NULL COMMENT '删除标记',
+	PRIMARY KEY (id)
+) COMMENT = '角色表';
+
+
+CREATE TABLE sys_role_menu
+(
+	role_id varchar(64) NOT NULL COMMENT '角色编号',
+	menu_id varchar(64) NOT NULL COMMENT '菜单编号',
+	PRIMARY KEY (role_id, menu_id)
+) COMMENT = '角色-菜单';
+
+
+CREATE TABLE sys_role_office
+(
+	role_id varchar(64) NOT NULL COMMENT '角色编号',
+	office_id varchar(64) NOT NULL COMMENT '机构编号',
+	PRIMARY KEY (role_id, office_id)
+) COMMENT = '角色-机构';
+
+
+CREATE TABLE sys_user
+(
+	id varchar(64) NOT NULL COMMENT '编号',
+	company_id varchar(64) NOT NULL COMMENT '归属公司',
+	office_id varchar(64) NOT NULL COMMENT '归属部门',
+	login_name varchar(100) NOT NULL COMMENT '登录名',
+	password varchar(100) NOT NULL COMMENT '密码',
+	no varchar(100) COMMENT '工号',
+	name varchar(100) NOT NULL COMMENT '姓名',
+	email varchar(200) COMMENT '邮箱',
+	phone varchar(200) COMMENT '电话',
+	mobile varchar(200) COMMENT '手机',
+	user_type char(1) COMMENT '用户类型',
+	login_ip varchar(100) COMMENT '最后登陆IP',
+	login_date datetime COMMENT '最后登陆时间',
+	create_by varchar(64) COMMENT '创建者',
+	create_date datetime COMMENT '创建时间',
+	update_by varchar(64) COMMENT '更新者',
+	update_date datetime COMMENT '更新时间',
+	remarks varchar(255) COMMENT '备注信息',
+	del_flag char(1) DEFAULT '0' NOT NULL COMMENT '删除标记',
+	PRIMARY KEY (id)
+) COMMENT = '用户表';
+
+
+CREATE TABLE sys_user_role
+(
+	user_id varchar(64) NOT NULL COMMENT '用户编号',
+	role_id varchar(64) NOT NULL COMMENT '角色编号',
+	PRIMARY KEY (user_id, role_id)
+) COMMENT = '用户-角色';
+
+
+
+/* Create Indexes */
+
+CREATE INDEX sys_area_parent_id ON sys_area (parent_id ASC);
+CREATE INDEX sys_area_del_flag ON sys_area (del_flag ASC);
+CREATE INDEX sys_dict_value ON sys_dict (value ASC);
+CREATE INDEX sys_dict_label ON sys_dict (label ASC);
+CREATE INDEX sys_dict_del_flag ON sys_dict (del_flag ASC);
+CREATE INDEX sys_log_create_by ON sys_log (create_by ASC);
+CREATE INDEX sys_log_request_uri ON sys_log (request_uri ASC);
+CREATE INDEX sys_log_type ON sys_log (type ASC);
+CREATE INDEX sys_log_create_date ON sys_log (create_date ASC);
+CREATE INDEX sys_menu_parent_id ON sys_menu (parent_id ASC);
+CREATE INDEX sys_menu_del_flag ON sys_menu (del_flag ASC);
+CREATE INDEX sys_office_parent_id ON sys_office (parent_id ASC);
+CREATE INDEX sys_office_del_flag ON sys_office (del_flag ASC);
+CREATE INDEX sys_role_del_flag ON sys_role (del_flag ASC);
+CREATE INDEX sys_user_office_id ON sys_user (office_id ASC);
+CREATE INDEX sys_user_login_name ON sys_user (login_name ASC);
+CREATE INDEX sys_user_company_id ON sys_user (company_id ASC);
+CREATE INDEX sys_user_update_date ON sys_user (update_date ASC);
+CREATE INDEX sys_user_del_flag ON sys_user (del_flag ASC);
