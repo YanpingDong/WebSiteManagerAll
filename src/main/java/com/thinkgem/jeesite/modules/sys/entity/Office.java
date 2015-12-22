@@ -192,7 +192,7 @@ public class Office extends IdEntity<Office> {
 		this.code = code;
 	}
 	
-	@OneToMany(mappedBy = "office", fetch=FetchType.LAZY)
+	@OneToMany(mappedBy = "office", fetch=FetchType.LAZY) //user entity 下 office属性
 	@Where(clause="del_flag='"+DEL_FLAG_NORMAL+"'")
 	@OrderBy(value="id") @Fetch(FetchMode.SUBSELECT)
 	@NotFound(action = NotFoundAction.IGNORE)
